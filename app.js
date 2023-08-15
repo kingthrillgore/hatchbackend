@@ -33,3 +33,19 @@ app.post('/reserve', async(req, res) => {
         res.status(500).send(error)
     }
 })
+
+app.get("/reserve", async (req, res) => {
+    const party = await Party.find({})
+
+    try {
+        res.send(party)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+});
+
+// TODO add for specific ID call?
+
+app.listen(port, function () {
+    console.log('App listening on port ' + port + '!')
+})
