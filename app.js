@@ -2,9 +2,10 @@ const datefns = require('date-fns')
 const express = require('express')
 const cors = require('cors')
 const router = express.Router()
-const database = require('./database')
-const Party = require('./models/party')
+//const database = require('./database')
+//const Party = require('./models/party')
 
+const party = []
 const port = 8080
 
 const app = express()
