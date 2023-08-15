@@ -19,7 +19,7 @@ app.get('/healthcheck', (req, res) => {
     res.json({"heartbeat": true})
 })
 
-app.post('/reserve', async(req, res)) {
+app.post('/reserve', async(req, res) => {
     if (!req.body) {
         res.status(400).send()
     }
@@ -32,4 +32,4 @@ app.post('/reserve', async(req, res)) {
     } catch (error) {
         res.status(500).send(error)
     }
-}
+})
