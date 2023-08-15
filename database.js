@@ -18,7 +18,7 @@ const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${M
 
 mongoose.connect(url, options).then( function() {
     console.log('MongoDB is connected');
-})
-    .catch( function(err) {
+}).catch( function(err) {
+    console.log("Can't connect to MongoDB");
     console.log(err);
 });
