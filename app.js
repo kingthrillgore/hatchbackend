@@ -24,20 +24,31 @@ app.post('/reserve', async(req, res) => {
         res.status(400).send()
     }
 
-    console.log("req", req.body)
-    console.log("name", req.body.name)
-    console.log("size", req.body.size)
-
     const party_request = {
-        'name': req.body.name,
+        'name': [],
         'size': req.body.size
     }
+    party_request.name.push(req.body.name)
 
-    parties.push(party_request);
+    if (parties.length !== 0) {
+        parties.forEach((party) => {
+            if (party.size === req.body.size) {
+                console.log("Records for party: ", party)
+                party.name.push(req.body.name)
+            } else {
+                console.log("No Entry, creating...")
+                parties.push(party_request)
+            }
+        })
+    } else {
+        console.log("Empty Record, inserting a starting record.")
+        parties.push(party_request)
+    }
+
+    console.log("parties", parties)
 
     try {
-        party.save()
-        res.send(req)
+        res.send(parties)
     } catch (error) {
         res.status(500).send(error)
     }
