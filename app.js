@@ -3,8 +3,6 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const router = express.Router()
-//const database = require('./database')
-//const Party = require('./models/party')
 
 let parties = []
 const port = 8080
@@ -46,8 +44,6 @@ app.post('/reserve', async(req, res) => {
 })
 
 app.get("/reserve", async (req, res) => {
-    //const party = await Party.find({})
-
     console.log("Parties", parties)
 
     try {
